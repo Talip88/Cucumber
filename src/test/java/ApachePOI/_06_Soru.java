@@ -15,7 +15,7 @@ public class _06_Soru {
       isteyiniz ve o sütundaki bütün bilgileri yazdırınız
         */
 
-        System.out.print("İstene sütun=");
+        System.out.print("İstenen sütun=");
         Scanner oku = new Scanner(System.in);
         int sutun = oku.nextInt();
 
