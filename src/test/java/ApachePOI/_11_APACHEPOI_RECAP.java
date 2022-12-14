@@ -6,17 +6,16 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class GenelTekrar {
+public class _11_APACHEPOI_RECAP {
     public static void main(String[] args) throws IOException {
 
         String excellFilePath="src/test/java/ApachePOI/resource/ApacheExcel2.xlsx";
         FileInputStream inputStream=new FileInputStream(excellFilePath);
 
         XSSFWorkbook workbook=new XSSFWorkbook(inputStream);
-        XSSFSheet sheet=workbook.getSheetAt(0); // XSSFSheet sheet1=workbook.getSheet("Sheet1");
+        XSSFSheet sheet=workbook.getSheetAt(1); // XSSFSheet sheet1=workbook.getSheet("Sheet1");
 
         int i=0;
         int rows=sheet.getLastRowNum();
@@ -29,16 +28,13 @@ public class GenelTekrar {
 
                 switch(cell.getCellType())  // cell lerin içeriği string ya da int olabilir.... type a göre veriyi okuyacağız...
                 {
-                    case STRING: System.out.println(cell.getStringCellValue()); break;
-                    case NUMERIC: System.out.println(cell.getNumericCellValue()); break;
-                    case BOOLEAN: System.out.println(cell.getBooleanCellValue()); break;
+                    case STRING: System.out.print(cell.getStringCellValue()); break;
+                    case NUMERIC: System.out.print(cell.getNumericCellValue()); break;
+                    case BOOLEAN: System.out.print(cell.getBooleanCellValue()); break;
                 }
-
+                System.out.print(" | ");
             }
+            System.out.println();
         }
-
-
-
-
     }
 }
