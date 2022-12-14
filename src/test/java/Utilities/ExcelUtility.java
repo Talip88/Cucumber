@@ -77,25 +77,23 @@ public class ExcelUtility {
             }
         }
         else // var ise
-
         {
-
             Sheet sheet=null;
             Workbook workbook=null;
             FileInputStream inputStream=null;
-            try{
-                inputStream=new FileInputStream(path);
-                workbook=WorkbookFactory.create(inputStream);
-                sheet=workbook.getSheetAt(0);
-            } catch (Exception e){
+            try {
+                inputStream = new FileInputStream(path);
+                workbook = WorkbookFactory.create(inputStream);
+                sheet = workbook.getSheetAt(0);
+            }catch(Exception e)
+            {
                 System.out.println("e.getMessage() = " + e.getMessage());
             }
 
+            // workbook-sheet-row-cell
+            int enSonSatirSayisi= sheet.getPhysicalNumberOfRows(); // 5 satır: 0,1,2,3,4
+            Row yeniSatir=sheet.createRow(enSonSatirSayisi); // 5 indexli satir böylece yeni satır
 
-
-           //workbook-sheet-row-cell
-            int enSonSatirSayisi=sheet.getPhysicalNumberOfRows();
-            Row yeniSatir=sheet.createRow(enSonSatirSayisi);
             Cell yeniHucre=yeniSatir.createCell(0);
             yeniHucre.setCellValue(senaryo.getName());
 
@@ -120,7 +118,11 @@ public class ExcelUtility {
             {
                 System.out.println(e.getMessage());
             }
+
         }
+
+
+
     }
 
 
