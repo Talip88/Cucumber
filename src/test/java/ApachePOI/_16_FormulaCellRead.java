@@ -6,16 +6,14 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class _16_FormulaCells {
+public class _16_FormulaCellRead {
     public static void main(String[] args) throws IOException {
 
         // Formul bulunan excell satırlarını okuma
 
-        FileInputStream file=new FileInputStream("src/test/java/ApachePOI/resource/Formula.xlsx");
+        FileInputStream file=new FileInputStream("src/test/java/ApachePOI/resource/Formula.xlsx.xlsx");
         XSSFWorkbook workbook=new XSSFWorkbook(file);
         XSSFSheet sheet=workbook.getSheet("Sheet1");
         int rows=sheet.getLastRowNum();
