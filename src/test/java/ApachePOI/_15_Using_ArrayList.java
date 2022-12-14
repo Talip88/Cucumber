@@ -14,7 +14,7 @@ public class _15_Using_ArrayList {
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet("Emp Info");
 
-        ArrayList<Object[]>empdata=new ArrayList<Object[]>();
+        ArrayList<Object[]> empdata = new ArrayList<Object[]>();
 
         empdata.add(new Object[]{"Empid", "Name", "Job"});
         empdata.add(new Object[]{101, "David", "Engineer"});
@@ -22,21 +22,30 @@ public class _15_Using_ArrayList {
         empdata.add(new Object[]{103, "Scott", "Analyst"});
 
 
-        int rowNum=0;
+        int rowNum = 0;
 
-        for (Object[] emp:empdata) {
-            XSSFRow row=sheet.createRow(rowNum++);
-            int cellNum=0;
-            for (Object value:emp) {
-                XSSFCell cell =row.createCell(cellNum++);
+        for (Object[] emp : empdata) {
+            XSSFRow row = sheet.createRow(rowNum++);
+            int cellNum = 0;
+            for (Object value : emp) {
+                XSSFCell cell = row.createCell(cellNum++);
+
+                if (value instanceof String) {
+                    cell.setCellValue((String) (value));
+                    if (value instanceof Integer) {
+                        cell.setCellValue((Integer) (value));
+                        if (value instanceof Boolean) {
+                            cell.setCellValue((Boolean) (value));
+                        }
+                    }
+
+                    String filePath = "src/test/java/ApachePOI/resource/ArrayListExcell.xlsx";
+                    FileOutputStream outputStream = new FileOutputStream(filePath);
+                    workbook.write(outputStream);
+                    outputStream.close();
+
+                }
             }
-        }
-
-
-        String filePath="src/test/java/ApachePOI/resource/ForEachList.xlsx";
-        FileOutputStream outputStream=new FileOutputStream(filePath);
-        workbook.write(outputStream);
-        outputStream.close();
-
+        }System.out.println("Employee excell file written successfully");
     }
 }
