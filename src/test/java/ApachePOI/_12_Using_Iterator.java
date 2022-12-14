@@ -7,8 +7,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Iterator;
 
-public class _11_APACHEPOI_RECAP {
+public class _12_Using_Iterator {
     public static void main(String[] args) throws IOException {
 
         String excellFilePath="src/test/java/ApachePOI/resource/ApacheExcel2.xlsx";
@@ -17,15 +18,16 @@ public class _11_APACHEPOI_RECAP {
         XSSFWorkbook workbook=new XSSFWorkbook(inputStream);
         XSSFSheet sheet=workbook.getSheetAt(1); // XSSFSheet sheet1=workbook.getSheet("Sheet1");
 
-        int i=0;
-        int rows=sheet.getLastRowNum();
-        int cols=sheet.getRow(i).getLastCellNum();
+        Iterator iterator=sheet.iterator();
 
-        for ( i = 0; i < rows; i++) { // OUTER LOOP -----> ROWS
-            XSSFRow row=sheet.getRow(i); //-----before creating cell we need to get row
-            for (int j = 0; j <cols ; j++) { //INNER LOOP --->>> COLUMNS
-              XSSFCell cell=row.getCell(j);      // we create and read cells in this loop...... execute multiple times
+        while (iterator.hasNext())  // //check row  is present or not------ if yes condition is true
+        {
+            XSSFRow row= (XSSFRow) iterator.next();
+            Iterator cellIterator= row.cellIterator();
 
+            while(cellIterator.hasNext()) //check cell is present or not
+            {
+               XSSFCell cell= (XSSFCell) cellIterator.next(); //cell objesi oluşturduk....
                 switch(cell.getCellType())  // cell lerin içeriği string ya da int olabilir.... type a göre veriyi okuyacağız...
                 {
                     case STRING: System.out.print(cell.getStringCellValue()); break;
@@ -36,5 +38,6 @@ public class _11_APACHEPOI_RECAP {
             }
             System.out.println();
         }
+
     }
 }
