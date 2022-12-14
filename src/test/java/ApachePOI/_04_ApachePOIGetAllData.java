@@ -38,6 +38,12 @@ public class _04_ApachePOIGetAllData {
                 System.out.print(sheet.getRow(i).getCell(j)+"\t");
             }
 
+
+
+
+
+
+
             System.out.println();
         }
     }
