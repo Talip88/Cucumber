@@ -27,9 +27,9 @@ public class _09_Soru {
 
      public static void main(String[] args) throws IOException {
           String path="src/test/java/ApachePOI/resource/YeniExcelMerhaba.xlsx";
-          File f=new File(path); // dosya kontrolü için bir dosya değişkeni oluşturuldu, sadece varlık kontrolü için
+          File file=new File(path); // dosya kontrolü için bir dosya değişkeni oluşturuldu, sadece varlık kontrolü için
 
-          if (!f.exists()) // dosya yok ise
+          if (!file.exists()) // dosya yok ise
           {
                //hafızada oluştur yeni olduğu için
                XSSFWorkbook workbook= new XSSFWorkbook();

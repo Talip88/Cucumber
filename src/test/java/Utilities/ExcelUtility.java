@@ -15,25 +15,25 @@ public class ExcelUtility {
     // istenilen kolona kadar sütunları okuyup Arraylist formatında geri döndüren fonksiyonu yazınız.
     // getListData("src/test/java/ApachePOI/resources/ApacheExcel2.xlsx","testCitizen", 2); 0-2
 
-    public  static ArrayList< ArrayList<String> > getListData(String path, String sheetName, int columnCnt)
+    public  static ArrayList<ArrayList<String> > getListData(String path, String sheetName, int columnCnt)
     {
         ArrayList< ArrayList<String> > tablo=new ArrayList<>();
 
-        Sheet sayfa =null;
+        Sheet sheet =null;
         try {
             FileInputStream inputStream = new FileInputStream(path);
             Workbook workbook = WorkbookFactory.create(inputStream);
-            sayfa = workbook.getSheet(sheetName);
+            sheet = workbook.getSheet(sheetName);
         }
         catch (Exception ex){
             System.out.println("ex.getMessage() = " + ex.getMessage());
         }
 
-        for (int i = 0; i < sayfa.getPhysicalNumberOfRows(); i++) { // bütün satırları getiriyor
+        for (int i = 0; i < sheet.getPhysicalNumberOfRows(); i++) { // bütün satırları getiriyor
 
             ArrayList<String> satirData=new ArrayList<>();
             for (int j = 0; j < columnCnt; j++) {
-                 satirData.add(sayfa.getRow(i).getCell(j).toString());
+                 satirData.add(sheet.getRow(i).getCell(j).toString());
             }
 
             tablo.add(satirData);
