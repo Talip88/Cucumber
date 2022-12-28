@@ -55,13 +55,13 @@ public class DialogContent extends Parent {
     @FindBy(xpath = "//ms-search-button//button")
     private WebElement searchButton;
 
-    @FindBy(xpath = "(//ms-delete-button//button)[1]")
+    @FindBy(xpath = "(//ms-delete-button//button)[1])")
     private WebElement deleteButton;
 
     @FindBy(xpath = "//span[text()=' Delete ']")
     private WebElement deleteDialogBtn;
 
-    @FindBy(xpath = "(//td[@role='cell'])[2]")
+    @FindBy(xpath = "(//td[@role='cell'])[2])")
     private WebElement searchResultCell;
 
     @FindBy(xpath = "//ms-text-field[@formcontrolname='budgetAccountIntegrationCode']//input")

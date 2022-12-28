@@ -15,7 +15,7 @@ import org.testng.annotations.Parameters;
 )
 public class _09_TestRunnerParallel extends AbstractTestNGCucumberTests {
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     @Parameters("browser")
     public void beforeClass(String browser)
     {

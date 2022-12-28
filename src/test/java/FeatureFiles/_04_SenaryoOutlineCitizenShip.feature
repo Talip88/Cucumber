@@ -26,7 +26,7 @@ Feature: Citizenship with scenario Outline
 
     Examples:
       | Name    | ShortName |
-      | vatIs11 | isVat11   |
-      | vatIs21 | isVat12   |
-      | vatIs31 | isVat13   |
-      | vatIs41 | isVat14   |
+      | vatIs13 | isVat14   |
+      | vatIs23| isVat3   |
+      | vatIs34 | isVat14   |
+      | vatIs43 | isVat143   |
