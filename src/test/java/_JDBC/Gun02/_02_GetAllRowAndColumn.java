@@ -91,4 +91,61 @@ public class _02_GetAllRowAndColumn extends JDBCParent {
             System.out.println();
         }
     }
+
+
+
+    @Test
+    public void test4() throws SQLException {
+        // actor tablosundaki tüm satırları ve tüm sütunları yazdırınız,
+        // aynı mysql sonuç ekranında olduğu gibi
+        // fakat metod kullanınız, metoda sorguyu gönderiniz ve orada yazdırınız.
+
+        getTable("select * from actor");
+
+        getTable2("select * from actor");
+    }
+    public void getTable(String sorgu) throws SQLException {
+        ResultSet rs=statement.executeQuery(sorgu);
+        ResultSetMetaData rsmd=rs.getMetaData();
+
+        for(int i=1; i<= rsmd.getColumnCount(); i++)
+            System.out.printf("%-20s",rsmd.getColumnName(i));
+
+        System.out.println();
+
+        while (rs.next())
+        {
+            for(int i=1; i<= rsmd.getColumnCount(); i++)
+                System.out.printf("%-20s",rs.getString(i));
+            System.out.println();
+        }
+    }
+
+    public void getTable2(String sorgu) throws SQLException {
+        ResultSet rs = statement.executeQuery(sorgu);
+        ResultSetMetaData rsmd = rs.getMetaData();
+
+        for (int i = 1; i <= rsmd.getColumnCount(); i++)
+            System.out.printf("%d ", rsmd.getColumnDisplaySize(i));
+
+        System.out.println();
+
+        for (int i = 1; i <= rsmd.getColumnCount(); i++)
+            System.out.printf("%-20s", rsmd.getColumnName(i));
+
+        System.out.println();
+
+        while (rs.next()) {
+            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+
+                if (rsmd.getColumnDisplaySize(i) > 100) {
+                    System.out.printf("%-100s ", rs.getString(i).substring(0,
+                            rs.getString(i).length() > 100 ? 100 : rs.getString(i).length()));
+                } else
+                    System.out.printf("%-" + rsmd.getColumnDisplaySize(i) + "s ", rs.getString(i));
+            }
+
+            System.out.println();
+       }
+    }
 }
