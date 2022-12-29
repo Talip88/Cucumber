@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 public class DialogContent extends Parent {
 
     public DialogContent() {
@@ -73,6 +75,8 @@ public class DialogContent extends Parent {
     @FindBy(xpath = "//mat-slide-toggle[@formcontrolname='active']")
     private WebElement toggleBar;
 
+    @FindBy(xpath = "//tbody[@role='rowgroup']/tr/td[2]")
+    public List<WebElement> nameList;   // hiçbir methoda uymadığı için public yapıldı
 
     WebElement myElement;
 
