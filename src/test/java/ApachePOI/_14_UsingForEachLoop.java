@@ -16,10 +16,10 @@ public class _14_UsingForEachLoop {
 
         Object empData[][] = {
 
-                {"EmpID", "Name", "Job"},
-                {101, "David", "Engineer"},
-                {102, "Smith", "Manager"},
-                {103, "Scott", "Analyst"}};
+                {"EmpID", "Name", "Job", "status"},
+                {101, "David", "Engineer", true},
+                {102, "Smith", "Manager", false},
+                {103, "Scott", "Analyst", true}};
 
         int rowCount = 0;
         for (Object emp[] : empData) {
@@ -30,21 +30,19 @@ public class _14_UsingForEachLoop {
 
                 if (value instanceof String) {
                     cell.setCellValue((String) (value));
-                    if (value instanceof Integer) {
-                        cell.setCellValue((Integer) (value));
-                        if (value instanceof Boolean) {
-                            cell.setCellValue((Boolean) (value));
-
-                        }
-                    }
-                    String filePath="src/test/java/ApachePOI/resource/ForEachList.xlsx";
-                    FileOutputStream outputStream=new FileOutputStream(filePath);
-                    workbook.write(outputStream);
-                    outputStream.close();
-
+                } else if (value instanceof Integer) {
+                    cell.setCellValue((Integer) (value));
+                } else if (value instanceof Boolean) {
+                    cell.setCellValue((Boolean) (value));
                 }
 
+                String filePath = "src/test/java/ApachePOI/resource/ForEachList.xlsx";
+                FileOutputStream outputStream = new FileOutputStream(filePath);
+                workbook.write(outputStream);
+                outputStream.close();
+
             }
+
         }System.out.println("Employee excell file written successfully");
-        }
     }
+}

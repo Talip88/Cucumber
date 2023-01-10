@@ -14,7 +14,7 @@ public class _17_FormulaCellCreate {
         row.createCell(1).setCellValue(20);
         row.createCell(2).setCellValue(30);
 
-        row.createCell(3).setCellFormula("A1*B1*C1");
+        row.createCell(3).setCellFormula("(A1*B1*C1)/3");
 
         FileOutputStream outputStream=new FileOutputStream("src/test/java/ApachePOI/resource/Formula.xlsx");
         workbook.write(outputStream);

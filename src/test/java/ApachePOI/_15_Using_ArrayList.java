@@ -22,7 +22,6 @@ public class _15_Using_ArrayList {
         empdata.add(new Object[]{102, "Smith", "Manager"});
         empdata.add(new Object[]{103, "Scott", "Analyst"});
 
-
         int rowNum = 0;
 
         for (Object[] emp : empdata) {

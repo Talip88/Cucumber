@@ -13,25 +13,25 @@ public class _16_FormulaCellRead {
 
         // Formul bulunan excell satırlarını okuma
 
-        FileInputStream file=new FileInputStream("src/test/java/ApachePOI/resource/Formula.xlsx.xlsx");
+        FileInputStream file=new FileInputStream("src/test/java/ApachePOI/resource/Formula.xlsx");
         XSSFWorkbook workbook=new XSSFWorkbook(file);
-        XSSFSheet sheet=workbook.getSheet("Sheet1");
-        int rows=sheet.getLastRowNum();
+        XSSFSheet sheet=workbook.getSheet("FormulaWrite");
+        int rows=sheet.getPhysicalNumberOfRows();
 
         int i=0;
         int cols=sheet.getRow(i).getLastCellNum();
 
         for ( i = 0; i <rows; i++) {
-            XSSFRow row=sheet.createRow(i);
+            XSSFRow row=sheet.getRow(i);
             for (int j = 0; j <cols; j++) {
-                XSSFCell cell=row.createCell(j);
+                XSSFCell cell=row.getCell(j);
 
                 switch(cell.getCellType())  // cell lerin içeriği string ya da int olabilir.... type a göre veriyi okuyacağız...
                 {
                     case STRING: System.out.print(cell.getStringCellValue()); break;
                     case NUMERIC: System.out.print(cell.getNumericCellValue()); break;
                     case BOOLEAN: System.out.print(cell.getBooleanCellValue()); break;
-                    case FORMULA: System.out.print(cell.getNumericCellValue()); break;  // TYPE FORMUL İSE .....****
+                    case FORMULA: System.out.print(cell.getCellFormula()); break;  // TYPE FORMUL İSE .....****
                 }
                 System.out.print(" | ");
             }

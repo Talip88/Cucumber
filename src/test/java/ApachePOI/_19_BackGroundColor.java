@@ -28,8 +28,8 @@ public class _19_BackGroundColor {
         cell.setCellStyle(style);
 
         style=workbook.createCellStyle();
-        style.setFillForegroundColor(IndexedColors.YELLOW1.getIndex());
-        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        style.setFillForegroundColor(IndexedColors.PALE_BLUE.getIndex());
+        style.setFillPattern(FillPatternType.BRICKS);
 
         cell=row.createCell(2);
         cell.setCellValue("Auto");

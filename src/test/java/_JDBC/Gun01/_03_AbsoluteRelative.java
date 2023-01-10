@@ -14,10 +14,11 @@ public class _03_AbsoluteRelative extends JDBCParent {
         //next(): bulunduğu yerden bir sonraki row
         // previous() :bulunduğu yerden bir önceki row
         // absolute (4) : baştan itibaren 4.row
+        // relative (7) en son bulunduğu yerden 7  satır gider
 
         ResultSet rs=statement.executeQuery("select * from city");
 
-        rs.absolute(10);
+        rs.absolute(10); // 10. satıra git demek...
 
         String title=rs.getString("title");
         System.out.println("title = " + title);

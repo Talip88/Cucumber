@@ -16,13 +16,13 @@ public class _01_Intro {
 
         //CONNECTION
         Connection connection= DriverManager.getConnection(url, userName,password);
-
-
         //sql lerin yazılacağı sayfa
         Statement statement =connection.createStatement(); //sorguları çalıştırmam için sayfa aç
 
-        ResultSet rs=statement.executeQuery("select * from actor"); //sorgunun sonuçları oluştu db de bekliyor
+        ResultSet rs=statement.executeQuery("select * from actor");
+        //sorgunun sonuçları oluştu db de bekliyor
         //hızlı çalışmak için sonuçların hepsi bilgisayarına gelmedi. Sonuçların olduğu yer db nin içi.
+
         //Peki nasıl alıcam .. ITERATOR ile..
 
         rs.next(); // ilk satır bilgisayarıma geldi. İlk satırı bilgisayarımıza aldık.

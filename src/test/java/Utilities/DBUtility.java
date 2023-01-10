@@ -52,7 +52,8 @@ public class DBUtility {
         //System.out.println("tablo = " + tablo);
 
         for(List<String> satir : tablo)
-            System.out.println("satir = " + satir);
+           System.out.println("satir = " + satir);
+       // System.out.println("tablo"+tablo);
     }
 
     public static void DBConnectionOpen()

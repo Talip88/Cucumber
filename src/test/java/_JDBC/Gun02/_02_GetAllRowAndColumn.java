@@ -47,11 +47,11 @@ public class _02_GetAllRowAndColumn extends JDBCParent {
         //TABLONUN BAŞLIKLARINI ALIYORUM METADATA İLE
         for (int i = 1; i <= rsmd.getColumnCount(); i++)
             System.out.print(rsmd.getColumnName(i) + "\t");
-
         System.out.println();
 
-        while (rs.next()) {
-            //KURSORUN BULUNDUĞU SATIRDAKI TUM KOLONLAR YAZDIRILIR
+        while (rs.next()) // Tüm Satırları sırayla yazdır
+        {
+            //KURSORUN BULUNDUĞU SATIRDAKI TUM KOLONLARDAKI DATALAR YAZDIRILIR
             for (int i = 1; i <= rsmd.getColumnCount(); i++)
                 System.out.print(rs.getString(i) + "\t");
 
@@ -96,6 +96,7 @@ public class _02_GetAllRowAndColumn extends JDBCParent {
 
     @Test
     public void test4() throws SQLException {
+
         // actor tablosundaki tüm satırları ve tüm sütunları yazdırınız,
         // aynı mysql sonuç ekranında olduğu gibi
         // fakat metod kullanınız, metoda sorguyu gönderiniz ve orada yazdırınız.
@@ -103,6 +104,8 @@ public class _02_GetAllRowAndColumn extends JDBCParent {
         getTable("select * from actor");
 
         getTable2("select * from actor");
+
+
     }
     public void getTable(String sorgu) throws SQLException {
         ResultSet rs=statement.executeQuery(sorgu);
@@ -120,6 +123,8 @@ public class _02_GetAllRowAndColumn extends JDBCParent {
             System.out.println();
         }
     }
+
+
 
     public void getTable2(String sorgu) throws SQLException {
         ResultSet rs = statement.executeQuery(sorgu);

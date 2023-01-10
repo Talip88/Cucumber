@@ -14,11 +14,11 @@ public class _11_JDBCSteps {
     @Then("Send The query the database {string} and control match")
     public void sendTheQueryTheDatabaseAndControlMatch(String sorgu) {
 
-        // DB den gerekli listeyi alıcam
+        // DB den gerekli listeyi alıcam liste atıcam
         ArrayList < ArrayList<String>> dbList=DBUtility.getListData(sorgu);
         System.out.println(dbList); //db kontrol
 
-        // Webden Ekrandaki listesi alıcam
+        // Webden Ekrandaki listeyi alıcam
         DialogContent dc=new DialogContent();
         List<WebElement> uiList = dc.nameList;
         for(WebElement e: uiList)

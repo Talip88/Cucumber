@@ -26,18 +26,18 @@ public class _09_Soru {
      */
 
      public static void main(String[] args) throws IOException {
-          String path="src/test/java/ApachePOI/resource/YeniExcelMerhaba.xlsx";
-          File file=new File(path); // dosya kontrolü için bir dosya değişkeni oluşturuldu, sadece varlık kontrolü için
+          String path = "src/test/java/ApachePOI/resource/YeniExcelMerhaba.xlsx";
+          File file = new File(path); // dosya kontrolü için bir dosya değişkeni oluşturuldu, sadece varlık kontrolü için
 
           if (!file.exists()) // dosya yok ise
           {
                //hafızada oluştur yeni olduğu için
-               XSSFWorkbook workbook= new XSSFWorkbook();
-               XSSFSheet sheet=workbook.createSheet("Sayfa1");
+               XSSFWorkbook workbook = new XSSFWorkbook();
+               XSSFSheet sheet = workbook.createSheet("Sayfa1");
 
                //bilgini yaz
-               Row yeniSatir=sheet.createRow(0);
-               Cell yeniHucre=yeniSatir.createCell(0);
+               Row yeniSatir = sheet.createRow(0);
+               Cell yeniHucre = yeniSatir.createCell(0);
                yeniHucre.setCellValue("Merhaba Dünya 1");
 
                //save
@@ -47,41 +47,35 @@ public class _09_Soru {
                outputStream.close();
 
                System.out.println("işlem tamamlandı");
-          }
-          else // dosya var ise
+          } else // dosya var ise
           {
-               FileInputStream inputStream=new FileInputStream(path);
-               Workbook workbook= WorkbookFactory.create(inputStream);
-               Sheet sheet=workbook.getSheetAt(0);
+               FileInputStream inputStream = new FileInputStream(path);
+               Workbook workbook = WorkbookFactory.create(inputStream);
+               Sheet sheet = workbook.getSheetAt(0);
 
-               int rowCnt= sheet.getPhysicalNumberOfRows(); // Kaç tane row olduğunu aldım
+               int rowCnt = sheet.getPhysicalNumberOfRows(); // Kaç tane row olduğunu aldım
                //bilgini yaz
-               Row yeniSatir=sheet.createRow(rowCnt); // var olanın 1 altına yeni satırı açtım
-               Cell yeniHucre=yeniSatir.createCell(0);
-               yeniHucre.setCellValue("Merhaba Dünya "+(rowCnt+1) );
+               Row yeniSatir = sheet.createRow(rowCnt); // var olanın 1 altına yeni satırı açtım
+               Cell yeniHucre = yeniSatir.createCell(0);
+               yeniHucre.setCellValue("Merhaba Dünya " + (rowCnt + 1));
 
                inputStream.close();
 
-               FileOutputStream outputStream=new FileOutputStream(path);
+               FileOutputStream outputStream = new FileOutputStream(path);
                workbook.write(outputStream);
                outputStream.close();
 
                System.out.println("işlem tamamlandı varolan");
+
+               // TODO: 12/31/2022  Arasında boşluklar olan excell oluştur kod boşlukları saymadan row ve cell sayısını versin
+
+               // TODO: 12/31/2022 Her sheet için satır sayısı sınırı koy. Sınıra ulaşınca yeni sheet açarak satır oluştur.
+
+
+
           }
 
 
      }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

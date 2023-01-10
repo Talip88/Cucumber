@@ -66,6 +66,9 @@ public class _10_Tasks {
             cell.setCellValue(" ");
         }
 
+
+
+
         sheet=workbook.createSheet("Yatay Çarpım Tablosu");
 
         //RENKLENDİRME BÖLÜMÜ
@@ -80,12 +83,12 @@ public class _10_Tasks {
 
 
         for (int i = 1; i <= 10; i++) {
-            row = sheet.createRow(i - 1);
+            row = sheet.createRow(i-1);
             int cellCount=row.getPhysicalNumberOfCells();
             for (int j = 1; j <= 10; j++) {
                 Cell cell = row.createCell(cellCount);
                 cellCount+=2;
-                cell.setCellValue(i + "x" + j + " =" + (i * j));
+                cell.setCellValue(j + "x" + i + " =" + (j * i));
             }
         }
         FileOutputStream fileOut = new FileOutputStream(path);
@@ -93,5 +96,7 @@ public class _10_Tasks {
         workbook.close();
         outputStream.close();
 
+
+        // TODO: 12/31/2022 Sadece veri yazdığı bölümü renklendir.
     }
 }
